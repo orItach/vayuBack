@@ -1,3 +1,12 @@
 import users from "./users"
+import groups from "./groups"
 
-export default {users}
+export interface PagingReq {
+    pageNumber: string;
+    pagesize:string
+}
+
+
+
+
+export default {users,groups}

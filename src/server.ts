@@ -8,24 +8,13 @@ import { Users } from "./entity/Users.model"
 
 const app = express();
 
-const port:number = 3000;
+const port:number = 3001;
 
 var corsOptions = {
-    origin: "http://localhost:8085",
+    origin: "http://localhost:3000",
 };
 
 AppDataSource.initialize().then(async () => {
-    // console.log("Inserting a new user into the database...")
-    // const user = new User()
-    // user.name = "Timber"
-    // await AppDataSource.manager.save(user)
-    // console.log("Saved a new user with id: " + user.id)
-
-    // console.log("Loading users from the database...")
-    // const users = await AppDataSource.manager.find(User)
-    // console.log("Loaded users: ", users)
-
-    // console.log("Here you can setup and run express / fastify / any other framework.")
 
 }).catch(error => console.log(error))
 // new Database()
@@ -39,5 +28,6 @@ app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
 
-const {users} = routes
+const {users,groups} = routes
 app.use('/users',users)
+app.use('/groups',groups)
